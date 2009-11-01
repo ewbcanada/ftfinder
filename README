@@ -1,0 +1,62 @@
+The Fair Trade Finder
+Copyright 2008-2009  Engineers Without Borders Canada
+http://itsupport.ewb.ca
+
+The Fair Trade Finder creates a database of locations serving Fair Trade 
+products, and interfaces with Google Maps to provide a visual interface for 
+finding these locations.
+
+The Fair Trade Finder was originally developed by Engineers Without Borders 
+Canada for use on the http://www.playyourpart.ca site, in partnership with 
+Transfair Canada.
+
+This project is no longer actively maintained, but is released under the GNU 
+General Public License in the hope that it may be useful (third-party libraries 
+bundled with this software may be separately licensed - in these cases, license 
+notices have been retained in the appropriate files).
+
+Donations to Engineers Without Borders Canada may be made at 
+http://www.ewb.ca/donate - your support is greatly appreciated.
+
+
+REQUIREMENTS
+
+This software requires PHP/mySQL, as well as the following packages:
+- mod_rewrite
+
+- mySQL geocalc functions (provided in the tools directory; and on the web at 
+  http://sourceforge.net/projects/geocalc-udf/ though this seems to be an 
+  older version)
+
+- php-xml
+
+- the Smarty templating engine (included under smarty/)
+
+
+INSTALLING
+
+Obtain a Google Maps API key (http://code.google.com/apis/maps/signup.html)
+
+Create a config.php file (see config.php.sample), modifying as needed with your 
+mySQL settings and Google Maps key
+
+In the tools directory, run the import.php script (either providing your own 
+.csv spreadsheet of initial data, or using our test data)
+
+
+TO-DO
+
+- the admin features are mostly un-tested, and need a lot of cleanup
+
+- it'd be really cool to allow user-submitted locations and ratings!
+  (perhaps use the code in admin/ as a base for this?)
+
+- clean up js/mapping.js and update to use jQuery
+
+- make products and location types dynamic
+
+- probably many others
+
+Have some time to contribute to these features?  We'd love your help!
+Check out the project at http://www.github.com/ewbcanada/ftfinder
+

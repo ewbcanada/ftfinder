@@ -1,0 +1,95 @@
+<form method="post" action="{$base}/">
+	<input type="submit" value="View Map"/>
+</form>
+
+<fieldset>
+<legend> 
+	Municipality Database
+</legend>
+
+<table cellpadding="2">
+	{foreach from=$mun item=mun} 
+		<tr>
+			<td>
+			{$mun.name}
+			</td>
+			<td> 
+			{$mun.geoCode}
+			</td>
+			<td> 
+			{$mun.zoom}
+			</td>
+			<td> 
+			<form method="post" action="{$base}/admin/editMunicipality.php?input={$mun.id}">
+			<input type="submit" value="edit"/>
+			</form>
+			</td>
+			<td>
+			<form method="post" action="{$base}/admin/deleteMunicipality.php"> 
+			<input type="submit" value="delete"/> 
+			<input type="hidden" name="id" value="{$mun.id}"/> 
+			</form>
+			</td>
+		</tr>
+	{/foreach} 
+</table>
+<form method="post" action="{$base}/admin/editMunicipality.php?input=new">
+<input type="submit" value="Add Municipality">
+</form>
+</fieldset>
+
+
+<fieldset>
+<legend>Location Database</legend>
+<form method="post" action="{$base}/admin/index.php">
+	<select name="prodCat">
+		{html_options options=$prodCat}
+	</select> 
+	<input type="text" size="50" value="search for location here" name="locSearch"/>
+	<input type="submit" value="search"/>
+</form>
+<select onchange="window.location = '{$base}/admin/index.php?input=' + this.value;">
+	{html_options options=$municipalities selected=$id}
+</select>
+
+<table cellpadding="2"> 
+	{foreach from=$points item=point} 
+		<tr>
+			<td>
+			{$point.geoCode}
+			</td>
+			<td> 
+			{$point.name}
+			</td>
+			<td> 
+			{$point.address}
+			</td>
+			<td> 
+			<form method="post" action="{$base}/admin/editLocation.php?input={$point.id}">
+			<input type="submit" value="edit"/>
+			</form>
+			</td>
+			<td>
+			<form method="post" action="{$base}/admin/deleteLocation.php"> 
+			<input type="submit" value="delete"/> 
+			<input type="hidden" name="id" value="{$point.id}"/> 
+			</form>
+			</td>
+		</tr>
+	{/foreach} 
+</table>  
+
+<table>
+<tablebody>
+<tr>
+<td>
+<form method="post" action="{$base}/admin/editLocation.php">
+<input type="submit" value="Add Location">
+</form>
+</td>
+</tr>
+</tablebody>
+</table>
+
+</fieldset>
+</script>

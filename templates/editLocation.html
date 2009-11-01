@@ -1,0 +1,57 @@
+<fieldset>
+<legend>Add an Address, Name, Municipality:</legend>
+
+<table>
+<tbody>
+<form method="post" action="{$base}/action/saveLocation/">
+		<input type="hidden" value="{$location.id}" name="id"/>
+	<tr>
+		<td>
+			<label for="adtext">
+				Address
+			</label>
+		</td>
+		<td>
+			<input type="text" size="50" value="{$location.address}" name="address" id="adtext"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label for="nametext">
+				Name
+			</label>
+		</td>
+		<td>
+			<input type="text" size="50" value="{$location.name}" name="name" id="nametext"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label for="muntext">
+				Municipality
+			</label>
+		</td>
+		<td>
+			<select name="municipality" id="muntext"> 
+				{html_options options=$municipalities selected=$location.municipality_id}
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="submit" value="OK"/>
+		</td>
+	
+</form>
+		<td>
+			<form method="post" action="{$base}/view/list/">
+				<input type="submit" value="Cancel"/>
+			</form>
+		</td>
+	</tr>
+</tbody>
+</table>
+
+
+</fieldset>
+

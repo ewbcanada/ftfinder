@@ -1,0 +1,134 @@
+{**************************************************************************
+ * The Fair Trade Finder                                                  *
+ *                                                                        *
+ * Copyright 2008-2009  Engineers Without Borders Canada                  *
+ * http://itsupport.ewb.ca                                                *
+ *                                                                        *
+ * The Fair Trade Finder is free software: you can redistribute it        *
+ * and/or modify it under the terms of the GNU General Public License     *
+ * as published by the Free Software Foundation, either version 3 of      *
+ * the License, or (at your option) any later version.                    *
+ *                                                                        *
+ * The Fair Trade Finder is distributed in the hope that it will be       *
+ * useful, but WITHOUT ANY WARRANTY; without even the implied warranty    *
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the       *
+ * GNU General Public License for more details.                           *
+ *                                                                        *
+ * You should have received a copy of the GNU General Public License      *
+ * along with this software.  If not, see <http://www.gnu.org/licenses/>. *
+ *                                                                        *
+ * map.html:                                                              *
+ * Template file for the main map.                                        *
+ *                                                                        *
+ **************************************************************************}
+
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key={$key}" type="text/javascript"></script>
+<script type="text/javascript" src="{$base}/js/jquery.js"></script>
+<script type="text/javascript" src="{$base}/js/mapping.js"></script>
+
+{literal}
+<script type="text/javascript">
+	function clickclear(thisfield, defaulttext)
+	{
+		if (thisfield.value == defaulttext)
+			thisfield.value = "";
+	}
+
+	function clickrecall(thisfield, defaulttext)
+	{
+		if (thisfield.value == "")
+			thisfield.value = defaulttext;
+	}
+
+	function setSiteHeight()
+	{
+		var myHeight = $(window).height();
+		$('#map').height(480 - (650-myHeight));
+		$('#sidebar').height(480 - (650-myHeight));
+		$('#detailsbox').height(410 - (650-myHeight));
+	}
+
+	$(document).ready(function() {
+		setSiteHeight();
+		load();
+	});
+
+	$(window).resize(setSiteHeight);
+	$(document).unload(GUnload);
+</script>
+{/literal}
+
+<div id="top">
+
+	(you could insert a logo here)
+
+	<div id="inputTable">
+		<div id="top-height-hack"></div>
+
+		{* TODO: jQuery-ize these *}
+		<form id="search-form" onsubmit="loadData(); return false">
+			<div class="example"> Enter an address, intersection, or city. E.g. "366 Adelaide Street West, Toronto" <br/>
+				<input type="text" size="50" class="textbox main" value="{if $locSearch}{$locSearch}{else}Enter an address here{/if}" onclick="clickclear(this, 'Enter an address here')" onblur="clickrecall(this,'Enter an address here')" name="locSearch"/>
+				<input type="submit" class="submitbutton" value="Search"/>
+				<span id="advancedSearchLink" {if $advancedMode}style="display:none"{/if}>
+					Want more search options? Try the 
+					<a href="#" onClick="$('#advancedSearch').show(); $('#advancedSearchLink').hide(); $('#basicSearchLink').show()">Advanced Search</a>
+				</span>
+				<span id="basicSearchLink" {if !$advancedMode}style="display:none"{/if}>
+					Too many search options? Try the
+					<a href="#" onClick="$('#advancedSearch').hide(); $('#advancedSearchLink').show(); $('#basicSearchLink').hide(); $('#searchProdCat').val(0); $('#searchLocCat').val('');">Basic Search</a>
+				</span>
+			</div>
+			<div id="advancedSearch" style="{if !$advancedMode}display:none;{/if} text-align:left">
+				<select name="prodCat" class="selectbox" id="searchProdCat">
+					{html_options options=$prodCat selected=$prodCatId}
+				</select> 
+				<select name="locCat" class="selectbox" id="searchLocCat">
+					{html_options options=$locCatChoice selected=$locCat}
+				</select>
+				<input type="text" class="textbox retailers" size="50" value="{if $nameSearch}{$nameSearch}{else}Search for name of retailer here{/if}" onclick="clickclear(this, 'Search for name of retailer here')" onblur="clickrecall(this,'Search for name of retailer here')" name="nameSearch"/>
+				<br/>
+			</div>		
+		</form>
+	</div>
+
+</div>
+
+
+<div id="main">
+
+	<div id="sidebar">
+		<div id="sidebarcontents">
+			<div id="detailsbox">
+				<p>To find locations near you, enter your address in the search box above.</p>
+			</div>
+		</div>
+	</div>
+
+	<div id="map"></div>
+
+	<div id="more-results">
+		Additional locations available - zoom in to see more accurate results!
+	</div>
+
+</div>
+    
+<div id="hellofrom">
+	Developed by <a href="http://ewb.ca" target="_blank">Engineers Without Borders Canada</a>. <br/>
+	Visit <a href="http://playyourpart.ca">PlayYourPart.ca</a>. 
+</div>
+
+<div id="bottomboxes">
+	<div id="legendbox">
+		{$locCatChoice[1]}: <img class="legendIcon" src="{$base}/icons/red_Marker.png" />
+		{$locCatChoice[2]}: <img class="legendIcon" src="{$base}/icons/blue_Marker.png" />
+		{$locCatChoice[3]}: <img class="legendIcon" src="{$base}/icons/yellow_Marker.png" />
+	</div>
+
+	{*
+	<form method="post" action="{$base}/view/list/">
+		<input type="submit" value="add/modify locations"/>
+	</form>
+	*}
+</div>
+

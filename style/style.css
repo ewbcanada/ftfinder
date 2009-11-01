@@ -1,0 +1,231 @@
+/**************************************************************************
+ * The Fair Trade Finder                                                  *
+ *                                                                        *
+ * Copyright 2008-2009  Engineers Without Borders Canada                  *
+ * http://itsupport.ewb.ca                                                *
+ *                                                                        *
+ * The Fair Trade Finder is free software: you can redistribute it        *
+ * and/or modify it under the terms of the GNU General Public License     *
+ * as published by the Free Software Foundation, either version 3 of      *
+ * the License, or (at your option) any later version.                    *
+ *                                                                        *
+ * The Fair Trade Finder is distributed in the hope that it will be       *
+ * useful, but WITHOUT ANY WARRANTY; without even the implied warranty    *
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the       *
+ * GNU General Public License for more details.                           *
+ *                                                                        *
+ * You should have received a copy of the GNU General Public License      *
+ * along with this software.  If not, see <http://www.gnu.org/licenses/>. *
+ **************************************************************************/
+
+body
+{
+	font-family:"Lucida Grande", Sans-serif;
+}
+
+a, a:link, a:visited
+{
+	color:blue;
+}
+
+a:hover
+{
+	color:#6A97FF;
+}
+
+strong
+{
+	font-weight: bold;
+}
+
+
+/*** Header (banner, form) ***/
+#top 
+{
+	margin: 10px 0px;
+}
+
+/* Hack to simulate the min-height property in IE6 */
+#top-height-hack
+{
+	height: 80px;
+	float: left;
+	width: 1px;
+}
+
+/* This should really be called "instructions" */
+.example
+{
+	color: gray;
+	text-align: left;
+	background-color:white;
+}
+
+#inputTable
+{
+	min-height:80px;
+	width:70%;
+	margin-left:29%;
+	padding:5px 0;
+	text-align:center;
+}
+
+form
+{
+	display:inline;
+}
+
+input.submitbutton
+{
+	padding:4px;
+	text-transform: capitalize;
+}
+
+input.textbox.main
+{
+	width:250px;
+	padding:4px;
+}
+
+input.textbox.retailers
+{
+	width:300px;
+}
+
+#advancedSearch
+{
+	margin-top:6px;
+}
+
+
+/*** Stuff along the left sidebar ***/
+#sidebar
+{
+	height:500px;
+	width:28%;
+	float:left;
+	border-right: thin double gray;
+}
+
+#sidebarcontents
+{
+	padding:4px 6px;
+	background:url(bg-content-grad.png) repeat-x white top left;	
+}
+
+/* Search result details */
+#detailsbox
+{
+	height:430px;
+	width:97%;
+	overflow:auto;
+}
+
+/* "All locations carry Fair Trade products" box */
+.noticeBox
+{
+	width:97%;
+	height:50px;
+	font-size:13px;
+	padding-top: 5px;
+}
+
+/* Footer text */
+#hellofrom
+{
+	float:left;
+	width:27%;
+	font-size:74%;
+	color:gray;
+	text-align:justify;
+	padding-right:4px;
+	margin-top:9px;
+	padding-left: 10px;
+}
+
+
+/*** Stuff in main content area ***/
+#main
+{
+	clear: both;
+	margin: 0px;
+	position: relative;
+}
+
+#map
+{
+	/* height will get overridden by javascript... */
+	height: 500px;
+	width:70%;
+	margin-left:29%;
+}
+
+/* overlay label at top of map when more results are available */
+#more-results
+{
+	margin-left: 29%;
+	position: absolute;
+	top: 0px;
+	left: 100px;
+	padding: 3px;
+	background: #000000;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	color: #ffffff;
+	font-weight: bold;
+	display: none;
+}
+
+.legendIcon
+{
+	vertical-align:middle;
+	margin-right:4em;
+}
+
+.iconImage
+{
+	vertical-align:top;
+	float:left;
+	margin-right: 8px;
+	border:0;
+}
+
+div#legendbox
+{
+	text-align:center;
+	margin-top: 10px;
+}
+
+
+/*** Search result boxes ***/
+/* Box along left sidebar */
+.infoboxes
+{
+	text-align:left;
+	font-size: 12px;
+	padding-left: 28px;
+}
+
+/* Popup on map itself */
+.popupinfoboxes
+{
+	padding-right: 15px;
+}
+
+.infoTitles
+{
+	font-weight: bold;
+	padding-bottom: 3px;
+}
+
+.infobox-products-carried
+{
+	padding-top: 5px;
+}
+
+.infobox-products-carried ul li
+{
+	margin-left: 20px;
+	list-style-type: none;
+}
+

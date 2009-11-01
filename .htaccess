@@ -1,0 +1,4 @@
+RewriteEngine ON
+
+RewriteRule ^view(.*)$ index.php?action=view&page=$1
+RewriteRule ^action(.*)$ index.php?action=save&page=$1

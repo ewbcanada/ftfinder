@@ -1,0 +1,47 @@
+<?php
+/**************************************************************************
+ * The Fair Trade Finder                                                  *
+ *                                                                        *
+ * Copyright 2008-2009  Engineers Without Borders Canada                  *
+ * http://itsupport.ewb.ca                                                *
+ *                                                                        *
+ * The Fair Trade Finder is free software: you can redistribute it        *
+ * and/or modify it under the terms of the GNU General Public License     *
+ * as published by the Free Software Foundation, either version 3 of      *
+ * the License, or (at your option) any later version.                    *
+ *                                                                        *
+ * The Fair Trade Finder is distributed in the hope that it will be       *
+ * useful, but WITHOUT ANY WARRANTY; without even the implied warranty    *
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the       *
+ * GNU General Public License for more details.                           *
+ *                                                                        *
+ * You should have received a copy of the GNU General Public License      *
+ * along with this software.  If not, see <http://www.gnu.org/licenses/>. *
+ *                                                                        *
+ * Sample configuration file.                                             *
+ *                                                                        *
+ **************************************************************************/
+
+//offline mode
+define('OFFLINE', false);
+
+$db_server = 'localhost';
+$db_user = 'root';
+$db_pass = '';
+
+$db_name = 'test';
+
+$base = "/ftmap";
+
+//localhost
+//define('KEY', 'ABQIAAAAWBt7bhynZ2yf6gDKJ2ceYxT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSyhqr6Fao0cQhgPae2452DdT_q0w');
+
+//172.23.1.117
+define('KEY', 'ABQIAAAAWBt7bhynZ2yf6gDKJ2ceYxSjOee52JUlIRuHcghttA2hwj3VfhQvLiBswdTgecJRPR_RvjWllWjXXg');
+
+
+mysql_connect($db_server, $db_user, $db_pass) or die(mysql_error());
+mysql_select_db($db_name) or die(mysql_error());
+
+
+?>

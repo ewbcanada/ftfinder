@@ -1,0 +1,41 @@
+<fieldset>
+<legend>Add a new municipality or edit an existing one:</legend>
+
+<table>
+<tbody>
+<form method="post" action="{$base}/action/saveMunicipality/">
+	<input type="hidden" value="{$municipality.id}" name="id"/>
+	<tr>
+		<td>
+			<label for="nametext">
+				Name
+			</label>
+		</td>
+		<td>
+			<input type="text" size="50" value="{$municipality.name}" name="name" id="nametext"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label for="zoom">
+				Zoom Level
+			</label>
+		</td>
+		<td>
+			<input type="text" size="50" value="{$municipality.zoom} "name="zoom" id="zoom"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="submit" value="Submit Changes"/>
+		</td>
+	</form>
+		<td>
+		<form method="post" action="{$base}/view/list/">
+			<input type="submit" value="Cancel"/>
+		</form>
+		</td>
+	</tr>
+</tbody>
+</table>
+</fieldset>
